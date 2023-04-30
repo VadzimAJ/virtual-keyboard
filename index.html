@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Virtual Keyboard">
+  <link rel="stylesheet" href="./css/style.css">
+  <title>Virtual Keyboard</title>
+</head>
+<body class="body">
+  <header class="header">
+    <div class="text-window">
+      <form class="text-window__form">
+        <label class="text-window__label" for="text-window__input"></label>
+        <textarea id="text-window__input" 
+                  class="text-window__input" 
+                  name="text" 
+                  rows="4" 
+                  cols="50" 
+                  required>text</textarea>
+        <div class="text-window__language" id="text-window__language">
+          <label class="text-window__language-label" for="text-window__language">Language:</label>
+          <select class="text-window__language-select" id="text-window__language-select"  name="language" required>
+            <option value="default" selected>Default</option>
+            <option value="en">English</option>
+            <option value="ru">Russian</option>
+          </select>
+        </div>
+      </form>
+    </div>
+  </header>
+  <main class="main">
+    <div class="virtual-keyboard">
+      <div class="virtual-keyboard__row-1"></div>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="backquote">`</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-1">1</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-2">2</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-3">3</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-4">4</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-5">5</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-6">6</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-7">7</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-8">8</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-9">9</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="digit-0">0</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="minus">-</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="plus">+</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--backspace" id="backspace">Backspace</button>
+      <div class="virtual-keyboard__row-2"></div>
+        <button class="virtual-keyboard__key virtual-keyboard__key--tab" id="tab">Tab</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-q">q</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-w">w</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-e">e</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-r">r</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-t">t</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-y">y</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-u">u</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-i">i</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-o">o</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="key-p">p</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="bracket-left">[</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="close-square-bracket">]</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--backslash" id="backslash-slash">\</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--del" id="delete">Del</button>
+      <div class="virtual-keyboard__row-3">
+        <button class="virtual-keyboard__key virtual-keyboard__key--caps" id="caps-lock">Caps Lock</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-a">a</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-s">s</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-d">d</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-f">f</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-g">g</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-h">h</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-j">j</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-k">k</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-l">l</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="semicolon">;</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="quote">'</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--enter" id="enter">Enter</button>
+      </div>
+      <div class="virtual-keyboard__row-4">
+        <button class="virtual-keyboard__key virtual-keyboard__key--r-shift" id="r-shift">R Shift</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--backslash" id="backslash">\</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-z">z</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-x">x</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-c">c</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-v">v</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-b">b</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-n">n</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="letter-m">m</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="comma">,</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="period">.</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--letter" id="slash">/</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--up" id="up">&uarr;</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--l-shift" id="l-shift">R Shift</button>
+      </div>
+      <div class="virtual-keyboard__row-5">
+        <button class="virtual-keyboard__key virtual-keyboard__key--ctr" id="ctrl">Ctrl</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--window" id="window">&#9784;</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--l-alt" id="l-alt">L Alt</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--space" id="space"> Space</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--r-alt" id="r-alt">R Alt</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--r-ctr" id="r-ctrl">R Ctrl</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--button-left" id="left">&larr;</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--button-down" id="down">&darr;</button>
+        <button class="virtual-keyboard__key virtual-keyboard__key--button-right" id="right">&rarr;</button>
+      </div>
+    </div>
+  </main>
+</body>
+</html>
