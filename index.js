@@ -349,6 +349,7 @@ function createVirtualKeyboard() {
   virtualKeyboard.appendChild(row1);
   virtualKeyboard.appendChild(row2);
   virtualKeyboard.appendChild(row3);
+  body.appendChild(virtualKeyboard);
   
   
   }
