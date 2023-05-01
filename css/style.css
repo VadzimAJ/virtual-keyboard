@@ -1,0 +1,46 @@
+@import url('../css/normalize.css');
+
+*{
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.body{
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+/* input window start*/
+
+.text-window{
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.text-window__form{
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 4%;
+}
+.text-window__input{
+  margin: 0 auto;
+  width: 80%;
+  height: 40%;
+}
+
+.text-window__language{
+  margin-left: 10%;
+}
+
+/* input window end*/
+
+/* keyboard start*/
+.virtual-keyboard{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+/* keyboard end*/
