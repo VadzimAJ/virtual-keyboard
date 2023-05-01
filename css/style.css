@@ -26,7 +26,7 @@ html {
 }
 .text-window__input{
   margin: 0 auto;
-  width: 100%;
+  width: 80%;
   height: 40%;
 }
 
@@ -35,3 +35,12 @@ html {
 }
 
 /* input window end*/
+
+/* keyboard start*/
+.virtual-keyboard{
+  display: flex;
+  flex-direction: column;
+  margin: 0 auto;
+  width: 80%;
+}
+/* keyboard end*/
