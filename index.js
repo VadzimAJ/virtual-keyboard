@@ -74,7 +74,7 @@ createTextWindow();
 
 
 //создание элементов клавиатуры первый ряд
-function createVirtualKeyboardRow1() {
+function createVirtualKeyboard() {
   const body = document.querySelector('body');
 
   // Создание элементов клавиатуры
@@ -83,6 +83,18 @@ function createVirtualKeyboardRow1() {
 
   const row1 = document.createElement('div');
   row1.classList.add('virtual-keyboard__row-1');
+
+  const row2 = document.createElement('div');
+  row2.classList.add('virtual-keyboard__row-2');
+
+  const row3 = document.createElement('div');
+  row3.classList.add('virtual-keyboard__row-3');
+
+  const row4 = document.createElement('div');
+  row3.classList.add('virtual-keyboard__row-4');
+
+  const row5 = document.createElement('div');
+  row3.classList.add('virtual-keyboard__row-5');
 
   const backquote = document.createElement('button');
   backquote.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
@@ -155,40 +167,6 @@ function createVirtualKeyboardRow1() {
   const backspaceIcon = document.createElement('i');
   backspaceIcon.classList.add('fas', 'fa-backspace');
   backspace.appendChild(backspaceIcon);
-  
-  // Добавление элементов на страницу
-  row1.appendChild(backquote);
-  row1.appendChild(digit1);
-  row1.appendChild(digit2);
-  row1.appendChild(digit3);
-  row1.appendChild(digit4);
-  row1.appendChild(digit5);
-  row1.appendChild(digit6);
-  row1.appendChild(digit7);
-  row1.appendChild(digit8);
-  row1.appendChild(digit9);
-  row1.appendChild(digit0);
-  row1.appendChild(minus);
-  row1.appendChild(plus);
-  row1.appendChild(backspace);
-  
-  virtualKeyboard.appendChild(row1);
-  body.appendChild(virtualKeyboard);
-  
-  }
-
-
-  createVirtualKeyboardRow1();
-//создание элементов клавиатуры второй ряд
-
-function createVirtualKeyboardRow2() {
-  const body = document.querySelector('body');
-
-  const virtualKeyboard = document.createElement('div');
-  virtualKeyboard.classList.add('virtual-keyboard');
-
-  const row2 = document.createElement('div');
-  row2.classList.add('virtual-keyboard__row-2');
 
   const tab = document.createElement('button');
   tab.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--tab');
@@ -264,39 +242,6 @@ function createVirtualKeyboardRow2() {
   Delite.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--del');
   Delite.setAttribute('id', 'delete');
   Delite.textContent = 'Del';
-  
-  row2.appendChild(tab);
-  row2.appendChild(letterQ);
-  row2.appendChild(letterW);
-  row2.appendChild(letterE);
-  row2.appendChild(letterR);
-  row2.appendChild(letterT);
-  row2.appendChild(letterY);
-  row2.appendChild(letterU);
-  row2.appendChild(letterI);
-  row2.appendChild(letterO);
-  row2.appendChild(letterP);
-  row2.appendChild(bracketLeft);
-  row2.appendChild(closeSquareBracket);
-  row2.appendChild(backslashSlash);
-  row2.appendChild(Delite);
-  
-  virtualKeyboard.appendChild(row2);
-  
-  body.appendChild(virtualKeyboard);
-  }
-  
-  createVirtualKeyboardRow2();
-
-//создание элементов клавиатуры третий ряд
-function createVirtualKeyboardRow3() {
-  const body = document.querySelector('body');
-
-  const virtualKeyboard = document.createElement('div');
-  virtualKeyboard.classList.add('virtual-keyboard');
-
-  const row3 = document.createElement('div');
-  row3.classList.add('virtual-keyboard__row-3');
 
   const capsLockButton = document.createElement('button');
   capsLockButton.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--caps');
@@ -362,6 +307,151 @@ function createVirtualKeyboardRow3() {
   enterButton.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--enter');
   enterButton.setAttribute('id', 'enter');
   enterButton.textContent = 'Enter';
+  const buttonShiftLeft = document.createElement('button');
+  buttonShiftLeft.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--l-shift');
+  buttonShiftLeft.setAttribute('id', 'shift-left');
+  buttonShiftLeft.textContent = 'L Shift';
+
+  const buttonIntlBackslash = document.createElement('button');
+  buttonIntlBackslash.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--backslash');
+  buttonIntlBackslash.setAttribute('id', 'intl-backslash');
+  buttonIntlBackslash.textContent = '\\';
+
+  const buttonLetterZ = document.createElement('button');
+  buttonLetterZ.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterZ.setAttribute('id', 'letter-z');
+  buttonLetterZ.textContent = 'z';
+
+  const buttonLetterX = document.createElement('button');
+  buttonLetterX.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterX.setAttribute('id', 'letter-x');
+  buttonLetterX.textContent = 'x';
+
+  const buttonLetterC = document.createElement('button');
+  buttonLetterC.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterC.setAttribute('id', 'letter-c');
+  buttonLetterC.textContent = 'c';
+
+  const buttonLetterV = document.createElement('button');
+  buttonLetterV.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterV.setAttribute('id', 'letter-v');
+  buttonLetterV.textContent = 'v';
+
+  const buttonLetterB = document.createElement('button');
+  buttonLetterB.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterB.setAttribute('id', 'letter-b');
+  buttonLetterB.textContent = 'b';
+
+  const buttonLetterN = document.createElement('button');
+  buttonLetterN.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterN.setAttribute('id', 'letter-n');
+  buttonLetterN.textContent = 'n';
+
+  const buttonLetterM = document.createElement('button');
+  buttonLetterM.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonLetterM.setAttribute('id', 'letter-m');
+  buttonLetterM.textContent = 'm';
+
+  const buttonComma = document.createElement('button');
+  buttonComma.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonComma.setAttribute('id', 'comma');
+  buttonComma.textContent = ',';
+
+  const buttonPeriod = document.createElement('button');
+  buttonPeriod.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonPeriod.setAttribute('id', 'period');
+  buttonPeriod.textContent = '.';
+
+  const buttonSlash = document.createElement('button');
+  buttonSlash.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
+  buttonSlash.setAttribute('id', 'slash');
+  buttonSlash.textContent = '/';
+
+  const buttonUp = document.createElement('button');
+  buttonUp.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--up');
+  buttonUp.setAttribute('id', 'up');
+  buttonUp.textContent = '\u2191';
+  
+  const buttonShiftRight = document.createElement('button');
+  buttonShiftRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-shift');
+  buttonShiftRight.setAttribute('id', 'shift-right');
+  buttonShiftRight.textContent = 'R Shift';
+  const ctrlLeft = document.createElement('button');
+  ctrlLeft.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--ctr');
+  ctrlLeft.setAttribute('id', 'ctrl-left');
+  ctrlLeft.textContent = 'L Ctrl';
+
+  const window = document.createElement('button');
+  window.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--window');
+  window.setAttribute('id', 'window');
+  window.textContent = '\u2634';
+
+  const altLeft = document.createElement('button');
+  altLeft.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--l-alt');
+  altLeft.setAttribute('id', 'alt-left');
+  altLeft.textContent = 'L Alt';
+
+  const space = document.createElement('button');
+  space.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--space');
+  space.setAttribute('id', 'space');
+  space.textContent = ' Space';
+
+  const altRight = document.createElement('button');
+  altRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-alt');
+  altRight.setAttribute('id', 'alt-right');
+  altRight.textContent = 'R Alt';
+
+  const ctrlRight = document.createElement('button');
+  ctrlRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-ctr');
+  ctrlRight.setAttribute('id', 'ctrl-right');
+  ctrlRight.textContent = 'R Ctrl';
+
+  const left = document.createElement('button');
+  left.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-left');
+  left.setAttribute('id', 'left');
+  left.textContent = '\u2190';
+
+  const down = document.createElement('button');
+  down.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-down');
+  down.setAttribute('id', 'down');
+  down.textContent = '\u2193';
+
+  const right = document.createElement('button');
+  right.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-right');
+  right.setAttribute('id', 'right');
+  right.textContent = '\u2192';
+
+  // Добавление элементов на страницу
+  row1.appendChild(backquote);
+  row1.appendChild(digit1);
+  row1.appendChild(digit2);
+  row1.appendChild(digit3);
+  row1.appendChild(digit4);
+  row1.appendChild(digit5);
+  row1.appendChild(digit6);
+  row1.appendChild(digit7);
+  row1.appendChild(digit8);
+  row1.appendChild(digit9);
+  row1.appendChild(digit0);
+  row1.appendChild(minus);
+  row1.appendChild(plus);
+  row1.appendChild(backspace);
+
+  row2.appendChild(tab);
+  row2.appendChild(letterQ);
+  row2.appendChild(letterW);
+  row2.appendChild(letterE);
+  row2.appendChild(letterR);
+  row2.appendChild(letterT);
+  row2.appendChild(letterY);
+  row2.appendChild(letterU);
+  row2.appendChild(letterI);
+  row2.appendChild(letterO);
+  row2.appendChild(letterP);
+  row2.appendChild(bracketLeft);
+  row2.appendChild(closeSquareBracket);
+  row2.appendChild(backslashSlash);
+  row2.appendChild(Delite);
 
   row3.appendChild(capsLockButton);
   row3.appendChild(aButton);
@@ -376,14 +466,43 @@ function createVirtualKeyboardRow3() {
   row3.appendChild(semicolonButton);
   row3.appendChild(quoteButton);
   row3.appendChild(enterButton);
-  
-  body.appendChild(row3);
+
+  row4.appendChild(buttonShiftLeft);
+  row4.appendChild(buttonIntlBackslash);
+  row4.appendChild(buttonLetterZ);
+  row4.appendChild(buttonLetterX);
+  row4.appendChild(buttonLetterC);
+  row4.appendChild(buttonLetterV);
+  row4.appendChild(buttonLetterB);
+  row4.appendChild(buttonLetterN);
+  row4.appendChild(buttonLetterM);
+  row4.appendChild(buttonComma);
+  row4.appendChild(buttonPeriod);
+  row4.appendChild(buttonSlash);
+  row4.appendChild(buttonUp);
+  row4.appendChild(buttonShiftRight);
+
+  row5.appendChild(ctrlLeft);
+  row5.appendChild(window);
+  row5.appendChild(altLeft);
+  row5.appendChild(space);
+  row5.appendChild(altRight);
+  row5.appendChild(ctrlRight);
+  row5.appendChild(left);
+  row5.appendChild(down);
+  row5.appendChild(right);
+
+  virtualKeyboard.appendChild(row1);
+  virtualKeyboard.appendChild(row2);
+  virtualKeyboard.appendChild(row3);
+  virtualKeyboard.appendChild(row4);
+  virtualKeyboard.appendChild(row5);
   body.appendChild(virtualKeyboard);
+  
   
   }
 
-  createVirtualKeyboardRow3();
-
+  createVirtualKeyboard();
 //создание элементов клавиатуры четветрый ряд
 
 
