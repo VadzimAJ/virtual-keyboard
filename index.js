@@ -376,7 +376,50 @@ function createVirtualKeyboard() {
   buttonShiftRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-shift');
   buttonShiftRight.setAttribute('id', 'shift-right');
   buttonShiftRight.textContent = 'R Shift';
-  
+  const ctrlLeft = document.createElement('button');
+  ctrlLeft.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--ctr');
+  ctrlLeft.setAttribute('id', 'ctrl-left');
+  ctrlLeft.textContent = 'L Ctrl';
+
+  const window = document.createElement('button');
+  window.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--window');
+  window.setAttribute('id', 'window');
+  window.textContent = '\u2634';
+
+  const altLeft = document.createElement('button');
+  altLeft.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--l-alt');
+  altLeft.setAttribute('id', 'alt-left');
+  altLeft.textContent = 'L Alt';
+
+  const space = document.createElement('button');
+  space.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--space');
+  space.setAttribute('id', 'space');
+  space.textContent = ' Space';
+
+  const altRight = document.createElement('button');
+  altRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-alt');
+  altRight.setAttribute('id', 'alt-right');
+  altRight.textContent = 'R Alt';
+
+  const ctrlRight = document.createElement('button');
+  ctrlRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-ctr');
+  ctrlRight.setAttribute('id', 'ctrl-right');
+  ctrlRight.textContent = 'R Ctrl';
+
+  const left = document.createElement('button');
+  left.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-left');
+  left.setAttribute('id', 'left');
+  left.textContent = '\u2190';
+
+  const down = document.createElement('button');
+  down.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-down');
+  down.setAttribute('id', 'down');
+  down.textContent = '\u2193';
+
+  const right = document.createElement('button');
+  right.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-right');
+  right.setAttribute('id', 'right');
+  right.textContent = '\u2192';
 
   // Добавление элементов на страницу
   row1.appendChild(backquote);
@@ -393,6 +436,7 @@ function createVirtualKeyboard() {
   row1.appendChild(minus);
   row1.appendChild(plus);
   row1.appendChild(backspace);
+
   row2.appendChild(tab);
   row2.appendChild(letterQ);
   row2.appendChild(letterW);
@@ -408,6 +452,7 @@ function createVirtualKeyboard() {
   row2.appendChild(closeSquareBracket);
   row2.appendChild(backslashSlash);
   row2.appendChild(Delite);
+
   row3.appendChild(capsLockButton);
   row3.appendChild(aButton);
   row3.appendChild(sButton);
@@ -436,12 +481,22 @@ function createVirtualKeyboard() {
   row4.appendChild(buttonSlash);
   row4.appendChild(buttonUp);
   row4.appendChild(buttonShiftRight);
-  
+
+  row5.appendChild(ctrlLeft);
+  row5.appendChild(window);
+  row5.appendChild(altLeft);
+  row5.appendChild(space);
+  row5.appendChild(altRight);
+  row5.appendChild(ctrlRight);
+  row5.appendChild(left);
+  row5.appendChild(down);
+  row5.appendChild(right);
 
   virtualKeyboard.appendChild(row1);
   virtualKeyboard.appendChild(row2);
   virtualKeyboard.appendChild(row3);
   virtualKeyboard.appendChild(row4);
+  virtualKeyboard.appendChild(row5);
   body.appendChild(virtualKeyboard);
   
   
