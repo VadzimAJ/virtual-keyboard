@@ -565,3 +565,18 @@ selectElement.addEventListener("change", function() {
   console.log(selectedOption);
   updateKeyboard();
 });
+
+// обработчик клавиатуры
+
+const textAreaInput = document.getElementById("text-window__input");
+textAreaInput.focus();
+
+
+document.addEventListener("keydown", function(event) {
+  const key = event.key;
+
+  if (/^[a-zа-яё\s]$/i.test(key)) {
+    textAreaInput.value += key;
+    event.preventDefault();
+  }
+});
