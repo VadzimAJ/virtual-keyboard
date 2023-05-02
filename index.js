@@ -577,6 +577,88 @@ document.addEventListener("keydown", function(event) {
 
   if (/^[a-zа-яё\s]$/i.test(key)) {
     textAreaInput.value += key;
-    event.preventDefault();
   }
 });
+
+const input = document.querySelector('#text-window__input');
+
+// get reference to all keys on the virtual keyboard
+const keys = document.querySelectorAll('.virtual-keyboard__key--letter');
+
+// add click event listener to each key
+keys.forEach(key => {
+  key.addEventListener('click', () => {
+    // get the value of the clicked key
+    const value = key.textContent;
+    // append the value to the input field
+    input.value += value;
+  });
+});
+
+//enter
+
+var textarea = document.getElementById("text-window__input");
+
+// Add an event listener to the virtual enter button
+document.getElementById("enter").addEventListener("click", function() {
+  // Get the current cursor position
+  var cursorPos = textarea.selectionStart;
+
+  // Get the textarea content
+  var content = textarea.value;
+
+  // Insert the line break character at the cursor position
+  var newContent = content.slice(0, cursorPos) + "\n" + content.slice(cursorPos);
+
+  // Update the textarea content
+  textarea.value = newContent;
+
+  // Set the cursor position after the line break
+  textarea.selectionStart = cursorPos + 1;
+  textarea.selectionEnd = cursorPos + 1;
+});
+
+//enter end
+
+//delite
+const deleteButton = document.getElementById('delete');
+
+// получаем ссылку на текстовое поле
+const inputField = document.getElementById('text-window__input');
+
+// добавляем обработчик события на кнопку Del
+deleteButton.addEventListener('click', () => {
+  // получаем текущее значение текстового поля
+  let inputValue = inputField.value;
+  
+  // получаем текущую позицию курсора
+  let cursorPosition = inputField.selectionStart;
+
+  // проверяем, что курсор не в конце текста
+  if (cursorPosition < inputValue.length) {
+    // удаляем символ после курсора и обновляем значение текстового поля
+    inputValue = inputValue.slice(0, cursorPosition) + inputValue.slice(cursorPosition + 1);
+    inputField.value = inputValue;
+
+    // перемещаем курсор на позицию после удаленного символа
+    inputField.setSelectionRange(cursorPosition, cursorPosition);
+  }
+});
+//delite end
+
+//backspace
+
+const backspaceButton = document.getElementById('backspace');
+
+const backspaceInputField = document.getElementById('text-window__input');
+
+backspaceButton.addEventListener('click', () => {
+  let inputValue = backspaceInputField.value;
+  
+  if (inputValue.length > 0) {
+    inputValue = inputValue.slice(0, -1);
+    backspaceInputField.value = inputValue;
+  }
+});
+
+//backspace end
