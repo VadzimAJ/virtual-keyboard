@@ -50,7 +50,7 @@ function createTextWindow() {
   englishOption.textContent = 'English';
 
   const russianOption = document.createElement('option');
-  russianOption.setAttribute('value', 'ru-RU');
+  russianOption.setAttribute('value', 'ru');
   russianOption.textContent = 'Russian';
 
   languageSelect.appendChild(defaultOption);
@@ -555,10 +555,10 @@ selectElement.addEventListener("change", function() {
   const selectedOption = this.value;
   if (selectedOption === 'default') {
     localTextLanguage = textLanguage;
-  } else if (selectedOption === 'en-US') {
+  } else if (selectedOption === 'en-US' ) {
     localTextLanguage= 'en-US.json';
-  } else if (selectedOption === 'ru-RU') {
-    localTextLanguage = 'ru-RU.json';
+  } else if (selectedOption === 'ru') {
+    localTextLanguage = 'ru.json';
   } else {
     localTextLanguage = 'en-US.json';
   }
