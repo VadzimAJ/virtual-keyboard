@@ -622,25 +622,20 @@ document.getElementById("enter").addEventListener("click", function() {
 
 //delite
 const deleteButton = document.getElementById('delete');
-
-// получаем ссылку на текстовое поле
 const inputField = document.getElementById('text-window__input');
 
-// добавляем обработчик события на кнопку Del
 deleteButton.addEventListener('click', () => {
-  // получаем текущее значение текстового поля
+
   let inputValue = inputField.value;
-  
-  // получаем текущую позицию курсора
+
+ 
   let cursorPosition = inputField.selectionStart;
 
-  // проверяем, что курсор не в конце текста
   if (cursorPosition < inputValue.length) {
-    // удаляем символ после курсора и обновляем значение текстового поля
+   
     inputValue = inputValue.slice(0, cursorPosition) + inputValue.slice(cursorPosition + 1);
     inputField.value = inputValue;
 
-    // перемещаем курсор на позицию после удаленного символа
     inputField.setSelectionRange(cursorPosition, cursorPosition);
   }
 });
