@@ -50,7 +50,7 @@ function createTextWindow() {
   englishOption.textContent = 'English';
 
   const russianOption = document.createElement('option');
-  russianOption.setAttribute('value', 'ru-RU');
+  russianOption.setAttribute('value', 'ru');
   russianOption.textContent = 'Russian';
 
   languageSelect.appendChild(defaultOption);
@@ -555,10 +555,10 @@ selectElement.addEventListener("change", function() {
   const selectedOption = this.value;
   if (selectedOption === 'default') {
     localTextLanguage = textLanguage;
-  } else if (selectedOption === 'en-US') {
+  } else if (selectedOption === 'en-US' ) {
     localTextLanguage= 'en-US.json';
-  } else if (selectedOption === 'ru-RU') {
-    localTextLanguage = 'ru-RU.json';
+  } else if (selectedOption === 'ru') {
+    localTextLanguage = 'ru.json';
   } else {
     localTextLanguage = 'en-US.json';
   }
@@ -707,15 +707,15 @@ function onKeyPress(event) {
 }
 
 const shiftKeys = ['caps-lock', 'shift-left', 'shift-right'];
-const shiftKeyCodes = [20, 16, 16]; // Код клавиши "Caps Lock" равен 20, коды клавиши "Shift" равны 16
+const shiftKeyCodes = [20, 16, 16];
 
-let shiftPressed = false; // Состояние Shift
+let shiftPressed = false;
 
 shiftKeys.forEach((key, index) => {
   const shiftKey = document.getElementById(key);
   shiftKey.addEventListener('click', () => {
-    shiftPressed = !shiftPressed; // Инвертируем состояние Shift
-    const eventType = shiftPressed ? 'keydown' : 'keyup'; // Определяем тип события в зависимости от состояния Shift
+    shiftPressed = !shiftPressed; 
+    const eventType = shiftPressed ? 'keydown' : 'keyup'; 
     const event = new KeyboardEvent(eventType, {
       bubbles: true,
       cancelable: true,
