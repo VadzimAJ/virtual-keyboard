@@ -504,7 +504,7 @@ function createVirtualKeyboard() {
   createVirtualKeyboard();
 
 
-//создание элементов клавиатуры
+//создание элементов клавиатуры end
 
 
 
@@ -566,11 +566,32 @@ selectElement.addEventListener("change", function() {
   updateKeyboard();
 });
 
+//cursor fix
+
+
+const inputField = document.getElementById("text-window__input");
+const text = inputField.value;
+const cursorPosition = text.length;
+inputField.setSelectionRange(cursorPosition, cursorPosition);
+
+
+//cursor fix end
+
+// tab fix strt
+
+inputField.addEventListener('keydown', function(event) {
+  if (event.key === 'Tab') {
+    event.preventDefault(); // prevent default tab behavior
+    var cursorPos = this.selectionStart;
+    var value = this.value;
+    this.value = value.substring(0, cursorPos) + '\t' + value.substring(this.selectionEnd);
+    this.selectionStart = this.selectionEnd = cursorPos + 1; // move cursor after tab
+  }
+});
+
+// tab fix end
+
 // обработчик клавиатуры
-
-const textAreaInput = document.getElementById("text-window__input");
-textAreaInput.focus();
-
 
 document.addEventListener("keydown", function(event) {
   const key = event.key;
@@ -580,80 +601,92 @@ document.addEventListener("keydown", function(event) {
   }
 });
 
-const input = document.querySelector('#text-window__input');
+// обработчик клавиатуры end
 
-// get reference to all keys on the virtual keyboard
-const keys = document.querySelectorAll('.virtual-keyboard__key--letter');
+const inputFieldVirtual = document.getElementById('text-window__input');
 
-// add click event listener to each key
-keys.forEach(key => {
-  key.addEventListener('click', () => {
-    // get the value of the clicked key
-    const value = key.textContent;
-    // append the value to the input field
-    input.value += value;
+// функция для вставки символа в текстовое поле с учетом позиции курсора
+function insertAtCursor(field, value) {
+  const cursorPosition = field.selectionStart;
+  const leftPart = field.value.substring(0, cursorPosition);
+  const rightPart = field.value.substring(cursorPosition, field.value.length);
+  field.value = `${leftPart}${value}${rightPart}`;
+  field.selectionStart = field.selectionEnd = cursorPosition + value.length;
+  field.focus();
+}
+
+// функция для обработки нажатия на кнопки клавиатуры
+function onKeyPress(event) {
+  const key = event.target.id;
+  const keyValue = event.target.textContent;
+
+  switch (key) {
+    case 'backspace':
+      if (inputField.selectionStart > 0) {
+        var newPosition = inputField.selectionStart - 1;
+        inputField.value = inputField.value.substring(0, newPosition) + inputField.value.substring(inputField.selectionEnd);
+        inputField.selectionStart = newPosition;
+        inputField.selectionEnd = newPosition;
+      }
+      break;
+    case 'delete':
+      if (inputField.selectionEnd > inputField.selectionStart) {
+        inputField.value = inputField.value.substring(0, inputField.selectionStart) + inputField.value.substring(inputField.selectionEnd);
+        inputField.selectionEnd = inputField.selectionStart;
+      } else if (inputField.selectionStart < inputField.value.length) {
+        inputField.value = inputField.value.substring(0, inputField.selectionStart) + inputField.value.substring(inputField.selectionStart + 1);
+      }
+      break;
+    case 'tab':
+      event.preventDefault();
+      insertAtCursor(inputField, '\t');
+      inputField.selectionStart += 0; 
+      inputField.selectionEnd = inputField.selectionStart;
+      break;
+    case 'caps-lock':
+    case 'shift-left':
+    case 'shift-right':
+    case 'enter':
+    case 'ctrl-left':
+    case 'ctrl-right':
+    case 'alt-left':
+    case 'alt-right':
+    case 'up':
+    case 'right':
+    case 'left':
+    case 'down':
+    case 'window':
+          break;  
+    default:
+      insertAtCursor(inputField, keyValue);
+      inputField.selectionStart += keyValue.length;
+      inputField.selectionEnd = inputField.selectionStart;
+      break;
+  }
+}
+
+const shiftKeys = ['caps-lock', 'shift-left', 'shift-right'];
+const shiftKeyCodes = [20, 16, 16]; // Код клавиши "Caps Lock" равен 20, коды клавиши "Shift" равны 16
+
+let shiftPressed = false; // Состояние Shift
+
+shiftKeys.forEach((key, index) => {
+  const shiftKey = document.getElementById(key);
+  shiftKey.addEventListener('click', () => {
+    shiftPressed = !shiftPressed; // Инвертируем состояние Shift
+    const eventType = shiftPressed ? 'keydown' : 'keyup'; // Определяем тип события в зависимости от состояния Shift
+    const event = new KeyboardEvent(eventType, {
+      bubbles: true,
+      cancelable: true,
+      key: 'Shift',
+      code: 'ShiftLeft',
+      keyCode: shiftKeyCodes[index],
+      shiftKey: shiftPressed
+    });
+    document.dispatchEvent(event);
   });
 });
 
-//enter
-
-var textarea = document.getElementById("text-window__input");
-
-// Add an event listener to the virtual enter button
-document.getElementById("enter").addEventListener("click", function() {
-  // Get the current cursor position
-  var cursorPos = textarea.selectionStart;
-
-  // Get the textarea content
-  var content = textarea.value;
-
-  // Insert the line break character at the cursor position
-  var newContent = content.slice(0, cursorPos) + "\n" + content.slice(cursorPos);
-
-  // Update the textarea content
-  textarea.value = newContent;
-
-  // Set the cursor position after the line break
-  textarea.selectionStart = cursorPos + 1;
-  textarea.selectionEnd = cursorPos + 1;
-});
-
-//enter end
-
-//delite
-const deleteButton = document.getElementById('delete');
-const inputField = document.getElementById('text-window__input');
-
-deleteButton.addEventListener('click', () => {
-
-  let inputValue = inputField.value;
-
- 
-  let cursorPosition = inputField.selectionStart;
-
-  if (cursorPosition < inputValue.length) {
-   
-    inputValue = inputValue.slice(0, cursorPosition) + inputValue.slice(cursorPosition + 1);
-    inputField.value = inputValue;
-
-    inputField.setSelectionRange(cursorPosition, cursorPosition);
-  }
-});
-//delite end
-
-//backspace
-
-const backspaceButton = document.getElementById('backspace');
-
-const backspaceInputField = document.getElementById('text-window__input');
-
-backspaceButton.addEventListener('click', () => {
-  let inputValue = backspaceInputField.value;
-  
-  if (inputValue.length > 0) {
-    inputValue = inputValue.slice(0, -1);
-    backspaceInputField.value = inputValue;
-  }
-});
-
-//backspace end
+// назначаем обработчики событий на все кнопки клавиатуры
+const keyboardButtons = document.querySelectorAll('.virtual-keyboard__key');
+keyboardButtons.forEach((button) => button.addEventListener('click', onKeyPress));
