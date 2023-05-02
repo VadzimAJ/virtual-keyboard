@@ -1,0 +1,106 @@
+@import url('../css/normalize.css');
+
+*{
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.body{
+  max-width: 70%;
+  margin: 0 auto;
+}
+
+/* input window start*/
+.text-window__label{
+  display: none;
+}
+
+.text-window__language-label{
+  font-size: 1.2rem;
+}
+.text-window{
+  margin: 0 auto;
+  margin-top: 5%;
+}
+.text-window__form{
+  display: flex;
+  flex-direction: column-reverse;
+  padding-bottom: 4%;
+}
+.text-window__input{
+  margin: 0 auto;
+  width: 80%;
+  height: 40%;
+}
+
+.text-window__language{
+  margin-left: 10%;
+}
+
+/* input window end*/
+
+/* keyboard start*/
+.virtual-keyboard{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  
+  margin: 0 auto;
+  width: 80%;
+}
+
+.virtual-keyboard__key:hover{
+  background-color: rgb(132, 142, 150);
+}
+
+.virtual-keyboard__key:active{
+  background-color: rgb(128, 152, 172);
+}
+
+.virtual-keyboard__row{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+
+}
+.virtual-keyboard__key{
+  margin: .1%;
+  font-size: 90%;
+}
+.virtual-keyboard__key--letter{
+  width: 6%;
+}
+.virtual-keyboard__key--backspace{
+  width: 17%;
+}
+.virtual-keyboard__key--tab{
+  width: 10%;
+}
+.virtual-keyboard__key--del{
+  width: 10%;
+}
+.virtual-keyboard__key--caps{
+  width: 15%;
+  padding: .5%;
+}
+.virtual-keyboard__key--enter{
+  width: 20%;
+}
+.virtual-keyboard__key--l-shift{
+  width: 13%;
+}
+.virtual-keyboard__key--l-alt,
+.virtual-keyboard__key--l-alt,
+.virtual-keyboard__key--r-shift
+.virtual-keyboard__key--ctr{
+  width: 7%;
+}
+
+.virtual-keyboard__key--space{
+  width: 45%;
+}
+
+/* keyboard end*/
