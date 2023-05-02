@@ -574,6 +574,11 @@ const text = inputField.value;
 const cursorPosition = text.length;
 inputField.setSelectionRange(cursorPosition, cursorPosition);
 
+var myInput = document.getElementById("text-window__input");
+
+myInput.oninput = function() {
+  console.log(myInput.value);
+}
 
 //cursor fix end
 
@@ -614,6 +619,34 @@ function insertAtCursor(field, value) {
   field.selectionStart = field.selectionEnd = cursorPosition + value.length;
   field.focus();
 }
+//
+
+const inputArrowField = document.getElementById('text-window__input');
+
+document.getElementById('up').addEventListener('click', function() {
+  const cursorPosition = inputArrowField.selectionStart;
+  const newPosition = cursorPosition - inputArrowField.cols;
+  inputArrowField.setSelectionRange(newPosition >= 0 ? newPosition : 0, newPosition >= 0 ? newPosition : 0);
+});
+
+document.getElementById('right').addEventListener('click', function() {
+  const cursorPosition = inputArrowField.selectionStart;
+  const newPosition = cursorPosition + 1;
+  inputArrowField.setSelectionRange(newPosition <= inputArrowField.value.length ? newPosition : inputArrowField.value.length, newPosition <= inputArrowField.value.length ? newPosition : inputArrowField.value.length);
+});
+
+document.getElementById('left').addEventListener('click', function() {
+  const cursorPosition = inputArrowField.selectionStart;
+  const newPosition = cursorPosition - 1;
+  inputArrowField.setSelectionRange(newPosition >= 0 ? newPosition : 0, newPosition >= 0 ? newPosition : 0);
+});
+
+document.getElementById('down').addEventListener('click', function() {
+  const cursorPosition = inputArrowField.selectionStart;
+  const newPosition = cursorPosition + inputArrowField.cols;
+  inputArrowField.setSelectionRange(newPosition <= inputArrowField.value.length ? newPosition : inputArrowField.value.length, newPosition <= inputArrowField.value.length ? newPosition : inputArrowField.value.length);
+});
+
 
 // функция для обработки нажатия на кнопки клавиатуры
 function onKeyPress(event) {
@@ -640,21 +673,23 @@ function onKeyPress(event) {
     case 'tab':
       event.preventDefault();
       insertAtCursor(inputField, '\t');
-      inputField.selectionStart += 0; 
       inputField.selectionEnd = inputField.selectionStart;
       break;
+    case 'enter':
+      insertAtCursor(inputField, '\n');
+      inputField.selectionEnd = inputField.selectionStart;
+      break;
+    case 'up':
+    case 'right':
+    case 'left':
+    case 'down':    
     case 'caps-lock':
     case 'shift-left':
     case 'shift-right':
-    case 'enter':
     case 'ctrl-left':
     case 'ctrl-right':
     case 'alt-left':
     case 'alt-right':
-    case 'up':
-    case 'right':
-    case 'left':
-    case 'down':
     case 'window':
           break;  
     default:

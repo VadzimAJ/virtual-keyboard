@@ -52,6 +52,14 @@ html {
   width: 80%;
 }
 
+.virtual-keyboard__key:hover{
+  background-color: rgb(132, 142, 150);
+}
+
+.virtual-keyboard__key:active{
+  background-color: rgb(128, 152, 172);
+}
+
 .virtual-keyboard__row{
   display: flex;
   flex-direction: row;
