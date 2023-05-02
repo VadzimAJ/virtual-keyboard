@@ -4,7 +4,7 @@ console.log(userLanguage);
 function createTextWindow() {
   const body = document.querySelector('body');
 
-  //создание элементов текстовго окна
+  //создание элементов текстовго окна начало
   const textWindow = document.createElement('div');
   textWindow.classList.add('text-window');
 
@@ -70,31 +70,30 @@ function createTextWindow() {
 }
 
 createTextWindow();
+//создание элементов текстовго конец
 
 
-
-//создание элементов клавиатуры первый ряд
+// Создание элементов клавиатуры начало
 function createVirtualKeyboard() {
   const body = document.querySelector('body');
 
-  // Создание элементов клавиатуры
   const virtualKeyboard = document.createElement('div');
   virtualKeyboard.classList.add('virtual-keyboard');
 
   const row1 = document.createElement('div');
-  row1.classList.add('virtual-keyboard__row-1');
+  row1.classList.add('virtual-keyboard__row-1', 'virtual-keyboard__row');
 
   const row2 = document.createElement('div');
-  row2.classList.add('virtual-keyboard__row-2');
+  row2.classList.add('virtual-keyboard__row-2', 'virtual-keyboard__row');
 
   const row3 = document.createElement('div');
-  row3.classList.add('virtual-keyboard__row-3');
+  row3.classList.add('virtual-keyboard__row-3', 'virtual-keyboard__row');
 
   const row4 = document.createElement('div');
-  row3.classList.add('virtual-keyboard__row-4');
+  row4.classList.add('virtual-keyboard__row-4', 'virtual-keyboard__row');
 
   const row5 = document.createElement('div');
-  row3.classList.add('virtual-keyboard__row-5');
+  row5.classList.add('virtual-keyboard__row-5', 'virtual-keyboard__row');
 
   const backquote = document.createElement('button');
   backquote.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--letter');
@@ -368,7 +367,7 @@ function createVirtualKeyboard() {
   buttonSlash.textContent = '/';
 
   const buttonUp = document.createElement('button');
-  buttonUp.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--up');
+  buttonUp.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--up', 'virtual-keyboard__key--letter');
   buttonUp.setAttribute('id', 'up');
   buttonUp.textContent = '\u2191';
   
@@ -402,26 +401,26 @@ function createVirtualKeyboard() {
   altRight.textContent = 'R Alt';
 
   const ctrlRight = document.createElement('button');
-  ctrlRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--r-ctr');
+  ctrlRight.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--ctr');
   ctrlRight.setAttribute('id', 'ctrl-right');
   ctrlRight.textContent = 'R Ctrl';
 
   const left = document.createElement('button');
-  left.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-left');
+  left.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-left', 'virtual-keyboard__key--letter');
   left.setAttribute('id', 'left');
   left.textContent = '\u2190';
 
   const down = document.createElement('button');
-  down.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-down');
+  down.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-down', 'virtual-keyboard__key--letter');
   down.setAttribute('id', 'down');
   down.textContent = '\u2193';
 
   const right = document.createElement('button');
-  right.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-right');
+  right.classList.add('virtual-keyboard__key', 'virtual-keyboard__key--button-right', 'virtual-keyboard__key--letter');
   right.setAttribute('id', 'right');
   right.textContent = '\u2192';
 
-  // Добавление элементов на страницу
+  // Добавление элементов клавиатуры начало
   row1.appendChild(backquote);
   row1.appendChild(digit1);
   row1.appendChild(digit2);
@@ -503,10 +502,9 @@ function createVirtualKeyboard() {
   }
 
   createVirtualKeyboard();
-//создание элементов клавиатуры четветрый ряд
 
 
-//создание элементов клавиатуры пятый ряд
+//создание элементов клавиатуры
 
 
 
