@@ -679,6 +679,12 @@ function onKeyPress(event) {
       insertAtCursor(inputField, '\n');
       inputField.selectionEnd = inputField.selectionStart;
       break;
+
+    case 'space':
+      event.preventDefault();
+      insertAtCursor(inputField, ' ');
+      inputField.selectionEnd = inputField.selectionStart;
+      break;
     case 'up':
     case 'right':
     case 'left':
@@ -701,15 +707,15 @@ function onKeyPress(event) {
 }
 
 const shiftKeys = ['caps-lock', 'shift-left', 'shift-right'];
-const shiftKeyCodes = [20, 16, 16]; // Код клавиши "Caps Lock" равен 20, коды клавиши "Shift" равны 16
+const shiftKeyCodes = [20, 16, 16];
 
-let shiftPressed = false; // Состояние Shift
+let shiftPressed = false;
 
 shiftKeys.forEach((key, index) => {
   const shiftKey = document.getElementById(key);
   shiftKey.addEventListener('click', () => {
-    shiftPressed = !shiftPressed; // Инвертируем состояние Shift
-    const eventType = shiftPressed ? 'keydown' : 'keyup'; // Определяем тип события в зависимости от состояния Shift
+    shiftPressed = !shiftPressed; 
+    const eventType = shiftPressed ? 'keydown' : 'keyup'; 
     const event = new KeyboardEvent(eventType, {
       bubbles: true,
       cancelable: true,
