@@ -679,6 +679,12 @@ function onKeyPress(event) {
       insertAtCursor(inputField, '\n');
       inputField.selectionEnd = inputField.selectionStart;
       break;
+
+    case 'space':
+      event.preventDefault();
+      insertAtCursor(inputField, ' ');
+      inputField.selectionEnd = inputField.selectionStart;
+      break;
     case 'up':
     case 'right':
     case 'left':
